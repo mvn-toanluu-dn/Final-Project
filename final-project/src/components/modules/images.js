@@ -1,0 +1,10 @@
+import Dashboard from "../../assets/images/dashboard.png";
+import User from "../../assets/images/avatar-icon.png";
+import Clothes from "../../assets/images/clothes.jpg";
+import Accessory from "../../assets/images/accessory.png";
+import Shirt from "../../assets/images/shirt.jpg";
+import Pants from "../../assets/images/pants.png";
+import Shoes from "../../assets/images/shoes.png";
+import Hat from "../../assets/images/hat.png";
+import Bag from "../../assets/images/bag.png";
+export const images =  {Dashboard, User, Clothes, Accessory, Shirt, Pants, Shoes, Hat, Bag};
