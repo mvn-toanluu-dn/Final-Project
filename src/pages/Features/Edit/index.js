@@ -1,9 +1,8 @@
-import { Button, Form, Input, Select } from "antd";
 import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import openNotificationWithIcon from "../../../components/animations";
+import ProductForm from "../../../components/modules/productForm";
 export default function EditForm() {
-  const { Option } = Select;
   const { key } = useParams();
   const [productList] = useState(JSON.parse(localStorage.getItem("products")));
   const [url, setUrl] = useState("");
@@ -36,92 +35,13 @@ export default function EditForm() {
     navigate("/home/shirt");
   }
   return (
-    <Form
-      name="basic"
-      labelCol={{
-        span: 5,
-      }}
-      wrapperCol={{
-        span: 10,
-      }}
-      onFinish={onFinish}
-      initialValues={currentItem}
-    >
-      <Form.Item
-        label="CODE"
-        name={["key"]}
-        rules={[
-          {
-            required: true,
-            message: "Please enter product ID",
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
-      <Form.Item
-        label="NAME"
-        name={["name"]}
-        rules={[
-          {
-            required: true,
-            message: "Please enter product name",
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
-      <Form.Item
-        label="IMAGE"
-        name="image"
-        rules={[
-          {
-            message: "Please add product image",
-          },
-        ]}
-      >
-        <input type="file" onChange={handleFileChange} />
-      </Form.Item>
-      <Form.Item
-        label="PRICE"
-        name={["price"]}
-        rules={[
-          {
-            required: true,
-            message: "Please enter product price",
-          },
-          {
-            validator: (_, value) =>
-              value > 0
-                ? Promise.resolve()
-                : Promise.reject("Value must be a positive number"),
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
-      <Form.Item
-        label="SIZE"
-        name={["size"]}
-        rules={[
-          {
-            required: true,
-            message: "Please enter product price",
-          },
-        ]}
-      >
-        <Select>
-          <Option value="S">S</Option>
-          <Option value="M">M</Option>
-          <Option value="L">L</Option>
-          <Option value="XL">XL</Option>
-        </Select>
-      </Form.Item>
-      <Form.Item>
-        <Button className="btn btn-update" type="primary" htmlType="submit">
-          Edit
-        </Button>
-      </Form.Item>
-    </Form>
+    <>
+      <ProductForm
+        onFinish={onFinish}
+        handleFileChange={handleFileChange}
+        nameBtn="Update"
+        classBtn="btn-update"
+      />
+    </>
   );
 }

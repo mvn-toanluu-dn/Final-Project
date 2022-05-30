@@ -2,7 +2,7 @@ import { Button, Form, Input, Select } from "antd";
 import React from "react";
 function productForm(props) {
   const { Option } = Select;
-  const { onFinish, onFinishFailed, handleFileChange } = props;
+  const { onFinish, onFinishFailed, handleFileChange, nameBtn, classBtn } = props;
   return (
     <Form
       name="basic"
@@ -91,8 +91,8 @@ function productForm(props) {
         </Select>
       </Form.Item>
       <Form.Item>
-        <Button className="btn btn-add" type="primary" htmlType="submit">
-          Create
+        <Button className={`btn ${classBtn}`} type="primary" htmlType="submit">
+          {nameBtn}
         </Button>
       </Form.Item>
     </Form>

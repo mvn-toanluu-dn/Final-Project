@@ -109,7 +109,7 @@ function Shirt() {
       okType: "danger",
       onOk: () => {
         const dataProduct = productList.filter((record) => record.key !== key);
-        openNotificationWithIcon("success", "Delete Product");
+        openNotificationWithIcon("success", "Deleted Product");
         setProductList(dataProduct);
       },
     });
@@ -131,9 +131,9 @@ function Shirt() {
   const onFinish = (ref) => {
     console.log(ref);
     const newProduct = { ...ref, productLink };
-    const newProductList = [...productList, newProduct];
-    openNotificationWithIcon("success", "Create Product");
+    const newProductList = [newProduct, ...productList];
     setProductList(newProductList);
+    openNotificationWithIcon("success", "Created Product");
     navigate("/home/shirt");
     setIsModalVisible(false);
   };
@@ -172,6 +172,8 @@ function Shirt() {
           onFinishFailed={onFinishFailed}
           handleFileChange={handleFileChange}
           productLink={productLink}
+          nameBtn="Create"
+          classBtn="btn-add"
         />
       </Modal>
       <Table
