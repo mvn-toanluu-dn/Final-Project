@@ -1,0 +1,15 @@
+.account {
+  .title-page {
+    font-size: 20px;
+  }
+  .account-content {
+    .account-img {
+      width: 200px;
+      height: 200px;
+    }
+    &-info {
+      font-size: 16px;
+      
+    }
+  }
+}

@@ -1,0 +1,36 @@
+.ant-table-cell {
+  img {
+    width: 120px;
+    border-radius: 50%;
+  }
+}
+.btn-create {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  border: none;
+  img {
+    width: 30px;
+  }
+  h6 {
+    font-size: 14px;
+  }
+}
+.ant-space-item {
+  width: 36px;
+  .btn-edit {
+    border: none;
+    background-color: #fff;
+    border-radius: 50%;
+  }
+  .btn-delete {
+    border: none;
+    background-color: #fff;
+    border-radius: 50%;
+  }
+  .btn-detail {
+    border: none;
+    background-color: #fff;
+    border-radius: 50%;
+  }
+}

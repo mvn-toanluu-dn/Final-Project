@@ -58,3 +58,11 @@ label {
 .form-group {
   @include pxRem(margin-bottom, 20);
 }
+
+.ant-modal-body {
+  .ant-form-item {
+    .ant-col-10 {
+      max-width: 60%;
+    }
+  }
+}
