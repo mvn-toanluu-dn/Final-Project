@@ -1,12 +1,12 @@
 import { Table, Space, Modal } from "antd";
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Add from "../../../../assets/images/icon-add.jpg";
-import Delete from "../../../../assets/images/icon-delete.png";
-import Edit from "../../../../assets/images/icon-edit.png";
-import openNotificationWithIcon from "../../../../components/animations";
-import { images } from "../../../../components/modules/images";
-import ProductForm from "../../../../components/modules/productForm";
+import Add from "../../../assets/images/icon-add.jpg";
+import Delete from "../../../assets/images/icon-delete.png";
+import Edit from "../../../assets/images/icon-edit.png";
+import openNotificationWithIcon from "../../../components/animations";
+import { images } from "../../../components/modules/images";
+import ProductForm from "../../../components/modules/productForm";
 
 function Shirt() {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -134,7 +134,7 @@ function Shirt() {
     const newProductList = [...productList, newProduct];
     openNotificationWithIcon("success", "Create Product");
     setProductList(newProductList);
-    navigate("/home/clothes/shirt");
+    navigate("/home/shirt");
     setIsModalVisible(false);
   };
 

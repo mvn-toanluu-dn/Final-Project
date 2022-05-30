@@ -20,12 +20,12 @@ function productForm(props) {
       onFinishFailed={onFinishFailed}
     >
       <Form.Item
-        label="ID"
+        label="CODE"
         name="key"
         rules={[
           {
             required: true,
-            message: "Please enter product ID",
+            message: "Please enter product CODE",
           },
         ]}
       >
@@ -62,6 +62,12 @@ function productForm(props) {
           {
             required: true,
             message: "Please enter product price",
+          },
+          {
+            validator: (_, value) =>
+              value > 0
+                ? Promise.resolve()
+                : Promise.reject("Value must be a positive number"),
           },
         ]}
       >

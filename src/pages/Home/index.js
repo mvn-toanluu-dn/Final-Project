@@ -5,7 +5,7 @@ import "../../assets/scss/styles.scss";
 import PageHeader from "../../components/layouts/Headers/";
 import { images } from "../../components/modules/images";
 import Account from "../Account";
-import Shirt from "../Features/Clothes/Shirt";
+import Shirt from "../Features/Shirt";
 import Dashboard from "../Features/Dashboard";
 import EditForm from "../Features/Edit";
 import ProductDetail from "../Features/ProductDetail";
@@ -36,21 +36,12 @@ export default function Home({ children }) {
       </Link>
     ),
     getItem(
-      "Clothes",
-      "sub1",
-      <Link to="/home/clothes">
-        <img className="logo" src={images.Clothes} alt="clothes" />
+      <Link to="/home/shirt">
+        <div>
+          <img className="logo" src={images.Shirt} alt="shirt" /> Shirt
+        </div>{" "}
       </Link>,
-      [
-        getItem(
-          <Link to="/home/clothes/shirt">
-            <div>
-              <img className="logo" src={images.Shirt} alt="shirt" /> Shirt
-            </div>{" "}
-          </Link>,
-          "3"
-        ),
-      ]
+      "3"
     ),
   ];
   return (
@@ -83,12 +74,9 @@ export default function Home({ children }) {
             }}
           >
             <Routes>
-              <Route path="clothes/shirt" element={<Shirt />} />
-              <Route path="clothes/shirt/edit/:key" element={<EditForm />} />
-              <Route
-                path="clothes/shirt/detail/:key"
-                element={<ProductDetail />}
-              />
+              <Route path="shirt" element={<Shirt />} />
+              <Route path="shirt/edit/:key" element={<EditForm />} />
+              <Route path="shirt/detail/:key" element={<ProductDetail />} />
               <Route path="account" element={<Account />} />
               <Route path="dashboard" element={<Dashboard />} />
             </Routes>

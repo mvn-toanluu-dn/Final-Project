@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import { images } from "../../../components/modules/images";
 
 function Dashboard() {
   return (
-    <div>Dashboard</div>
-  )
+    <div className="banner">
+      <img src={images.banner} alt={images.banner} />
+    </div>
+  );
 }
 
-export default Dashboard
+export default Dashboard;

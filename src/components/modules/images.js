@@ -17,6 +17,7 @@ import Edit from "../../assets/images/icon-edit.png";
 import Delete from "../../assets/images/icon-delete.png";
 import Details from "../../assets/images/details.png";
 import AdminIMG from "../../assets/images/admin-img.jpg";
+import banner from "../../assets/images/banner.jpg";
 export const images = {
   Dashboard,
   Account,
@@ -37,5 +38,6 @@ export const images = {
   Prod4,
   Prod5,
   AdminIMG,
+  banner
 };
 localStorage.setItem("photo", [Prod1, Prod2, Prod3, Prod4, Prod5]);

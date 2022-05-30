@@ -33,7 +33,7 @@ export default function EditForm() {
       : (ArrayEdit[indexValue].productLink = url);
     localStorage.setItem("products", JSON.stringify(ArrayEdit));
     openNotificationWithIcon("success", "Updated Product");
-    navigate("/home/clothes/shirt");
+    navigate("/home/shirt");
   }
   return (
     <Form
@@ -48,7 +48,7 @@ export default function EditForm() {
       initialValues={currentItem}
     >
       <Form.Item
-        label="ID"
+        label="CODE"
         name={["key"]}
         rules={[
           {
@@ -76,7 +76,6 @@ export default function EditForm() {
         name="image"
         rules={[
           {
-            required: true,
             message: "Please add product image",
           },
         ]}
@@ -90,6 +89,12 @@ export default function EditForm() {
           {
             required: true,
             message: "Please enter product price",
+          },
+          {
+            validator: (_, value) =>
+              value > 0
+                ? Promise.resolve()
+                : Promise.reject("Value must be a positive number"),
           },
         ]}
       >
