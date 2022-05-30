@@ -14,6 +14,7 @@ function Shirt() {
   const [productList, setProductList] = useState(
     JSON.parse(localStorage.getItem("products")) || []
   );
+  const initialValues = {};
   useEffect(() => {
     localStorage.setItem("products", JSON.stringify(productList));
   }, [productList]);
@@ -172,6 +173,7 @@ function Shirt() {
           onFinishFailed={onFinishFailed}
           handleFileChange={handleFileChange}
           productLink={productLink}
+          initialValues={initialValues}
           nameBtn="Create"
           classBtn="btn-add"
         />

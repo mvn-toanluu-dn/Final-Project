@@ -9,6 +9,7 @@ export default function EditForm() {
   const currentItem = productList.find(
     (record) => record.key.toString() === key
   );
+  console.log(currentItem);
   let navigate = useNavigate();
   const ArrayEdit = productList;
   const handleFileChange = (e) => {
@@ -39,8 +40,10 @@ export default function EditForm() {
       <ProductForm
         onFinish={onFinish}
         handleFileChange={handleFileChange}
-        nameBtn="Update"
+        initialValues={currentItem}
+        currentItem={currentItem}
         classBtn="btn-update"
+        nameBtn="Update"
       />
     </>
   );
