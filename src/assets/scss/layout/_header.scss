@@ -16,13 +16,13 @@
       color: white;
     }
     .log-out {
-      button {
-        background: #001529;
-        border: none;
-        color: white;
-        padding: 5px;
-        font-size: 14px;
-      }
+      background-color: #001529;
+      border: none;
+      color: white;
+      margin: 0 0 7px;
+      width: 80px;
+      display: flex;
+      justify-content: flex-end;
     }
   }
 }

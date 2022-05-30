@@ -2,9 +2,7 @@ import { Layout } from "antd";
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
-import Avatar from "../../../assets/images/avatar.png";
 import useAuth from "../../../hooks/useAuth";
-import { images } from "../../modules/images";
 
 const { Header } = Layout;
 
@@ -20,17 +18,16 @@ export default function PageHeader() {
         </h1>
       </div>
       <div className="user">
-        <div className="user-img">
-          <img src={Avatar} alt={images.Avatar} />
-        </div>
-        <h6 className="user-info">
-          {username?.username ? username.username : user?.username}
-        </h6>
-        <div className="log-out">
-          <NavLink to="/auth/login">
-            <button onClick={logout}>Log out</button>
-          </NavLink>
-        </div>
+        <NavLink to="/home/account">
+          <h6 className="user-info">
+            {username?.username ? username.username : user?.username}
+          </h6>
+        </NavLink>
+        <NavLink to="/auth/login">
+          <button className="log-out" onClick={logout}>
+            Log out
+          </button>
+        </NavLink>
       </div>
     </Header>
   );

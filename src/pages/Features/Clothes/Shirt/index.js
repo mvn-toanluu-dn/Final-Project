@@ -135,6 +135,7 @@ function Shirt() {
     openNotificationWithIcon("success", "Create Product");
     setProductList(newProductList);
     navigate("/home/clothes/shirt");
+    setIsModalVisible(false);
   };
 
   const onFinishFailed = (error) => {
@@ -164,6 +165,7 @@ function Shirt() {
         visible={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
+        footer={null}
       >
         <ProductForm
           onFinish={onFinish}
