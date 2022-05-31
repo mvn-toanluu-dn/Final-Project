@@ -1,6 +1,7 @@
 import { Button, Form, Input } from "antd";
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import openNotificationWithIcon from "../../../components/animations";
 import useAuth from "../../../hooks/useAuth";
 import { getUserInfo } from "../../../stores/userSlice";
@@ -8,6 +9,7 @@ import { getUserInfo } from "../../../stores/userSlice";
 function Login() {
   const { login } = useAuth();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const dataAdmin = [
     {
       username: "admin@gmail.com",
@@ -32,6 +34,11 @@ function Login() {
       dispatch(getUserInfo(findInfo));
     }
   };
+  const user = localStorage.getItem("user");
+  useEffect(() => {
+    user && navigate("/home/dashboard", { replace: true });
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <div className="page-login">

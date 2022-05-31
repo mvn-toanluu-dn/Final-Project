@@ -21,7 +21,7 @@ export default function useAuth() {
   const logout = () => {
     localStorage.removeItem("user");
     setIsLogged(false);
-    navigate("/auth/login");
+    navigate("/auth/login", { replace: true });
   };
 
   return { isLogged, login, logout };
