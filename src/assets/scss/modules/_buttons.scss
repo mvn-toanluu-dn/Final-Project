@@ -34,4 +34,10 @@
   width: 70px;
   text-align: center;
 }
-
+.ant-btn {
+  padding: 5px !important;
+  line-height: unset !important;
+}
+.btn-create, .btn-detail, .btn-edit, .btn-delete, .log-out {
+  cursor: pointer;
+}

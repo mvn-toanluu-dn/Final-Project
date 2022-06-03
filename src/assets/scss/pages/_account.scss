@@ -1,15 +1,21 @@
 .account {
   .title-page {
-    font-size: 20px;
+    font-size: 24px;
   }
   .account-content {
+    display: flex;
     .account-img {
       width: 200px;
-      height: 200px;
+      img {
+        border-radius: 50%;
+      }
     }
-    &-info {
-      font-size: 16px;
-      
+    .account-info {
+      font-size: 18px;
+      margin-left: 10px;
+      .account-hi {
+        font-size: 24px;
+      }
     }
   }
 }

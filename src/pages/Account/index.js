@@ -11,7 +11,8 @@ function Account() {
           <img src={images.AdminIMG} alt={images.AdminIMG} />
         </div>
         <div className="account-info">
-          <p>Email: {user.username}</p>
+          <p className="account-hi">Hi!</p>
+          <p className="account-email">Email: {user.username}</p>
         </div>
       </div>
     </div>

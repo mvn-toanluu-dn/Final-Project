@@ -14,16 +14,16 @@ export default function PageHeader() {
     <Header className="header">
       <div className="logo">
         <h1>
-          <Link to="/home/dashboard">ADMIN</Link>
+          <Link to="/dashboard">ADMIN</Link>
         </h1>
       </div>
       <div className="user">
-        <NavLink to="/home/account">
+        <NavLink to="/account">
           <h6 className="user-info">
             {username?.username ? username.username : user?.username}
           </h6>
         </NavLink>
-        <NavLink to="/auth/login">
+        <NavLink to="/login">
           <button className="log-out" onClick={logout}>
             Log out
           </button>

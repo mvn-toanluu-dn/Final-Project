@@ -4,10 +4,24 @@
     border-radius: 50%;
   }
 }
-.btn-create {
-  width: 100%;
+
+.management {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  .search-input {
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    .ant-input {
+      height: 30px;
+    }
+  }
+}
+.btn-create {
+  display: flex;
+  background: none;
+  float: right;
   border: none;
   img {
     width: 24px;

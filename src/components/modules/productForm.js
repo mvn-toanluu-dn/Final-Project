@@ -24,7 +24,7 @@ function productForm(props) {
       onFinishFailed={onFinishFailed}
     >
       <Form.Item
-        label="CODE"
+        label="Code"
         name="key"
         initialValue={initialValues.key}
         rules={[
@@ -37,7 +37,7 @@ function productForm(props) {
         <Input name="key" />
       </Form.Item>
       <Form.Item
-        label="NAME"
+        label="Name"
         name="name"
         initialValue={initialValues.name}
         rules={[
@@ -51,7 +51,7 @@ function productForm(props) {
       </Form.Item>
       {nameBtn === "Create" && (
         <Form.Item
-          label="IMAGE"
+          label="Image"
           name="url"
           rules={[
             {
@@ -64,12 +64,12 @@ function productForm(props) {
         </Form.Item>
       )}
       {nameBtn === "Update" && (
-        <Form.Item label="IMAGE" name="url">
+        <Form.Item label="Image" name="url">
           <input name="url" type="file" onChange={handleFileChange} />
         </Form.Item>
       )}
       <Form.Item
-        label="PRICE"
+        label="Price"
         name="price"
         initialValue={initialValues.price}
         rules={[
@@ -88,7 +88,7 @@ function productForm(props) {
         <Input name="price" />
       </Form.Item>
       <Form.Item
-        label="SIZE"
+        label="Size"
         name="size"
         initialValue={initialValues.size}
         rules={[
@@ -104,6 +104,19 @@ function productForm(props) {
           <Option value="L">L</Option>
           <Option value="XL">XL</Option>
         </Select>
+      </Form.Item>
+      <Form.Item
+        label="Description"
+        name="description"
+        initialValue={initialValues.description}
+        rules={[
+          {
+            required: true,
+            message: "Please enter description product",
+          },
+        ]}
+      >
+        <Input name="description" />
       </Form.Item>
       <Form.Item>
         <Button className={`btn ${classBtn}`} type="primary" htmlType="submit">

@@ -31,12 +31,14 @@ export default function EditForm() {
     url === ""
       ? (ArrayEdit[indexValue].productLink = currentItem.productLink)
       : (ArrayEdit[indexValue].productLink = url);
+    ArrayEdit[indexValue].description = values.description;
     localStorage.setItem("products", JSON.stringify(ArrayEdit));
     openNotificationWithIcon("success", "Updated Product");
-    navigate("/home/shirt");
+    navigate("/shirts");
   }
   return (
     <>
+      <h2 className="product-title">Product Editing</h2>
       <ProductForm
         onFinish={onFinish}
         handleFileChange={handleFileChange}

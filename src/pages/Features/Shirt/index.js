@@ -1,4 +1,4 @@
-import { Table, Space, Modal } from "antd";
+import { Table, Space, Modal, Input } from "antd";
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Add from "../../../assets/images/icon-add.jpg";
@@ -7,6 +7,7 @@ import Edit from "../../../assets/images/icon-edit.png";
 import openNotificationWithIcon from "../../../components/animations";
 import { images } from "../../../components/modules/images";
 import ProductForm from "../../../components/modules/productForm";
+import { BiSearch } from "react-icons/bi";
 
 function Shirt() {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -18,6 +19,17 @@ function Shirt() {
   useEffect(() => {
     localStorage.setItem("products", JSON.stringify(productList));
   }, [productList]);
+
+  const [searchParam] = useState(["name", "price", "size"]);
+
+  const [search, setSearch] = useState("");
+  const queryName = (productList) => {
+    return productList.filter((record) =>
+      searchParam.some((key) =>
+        record[key].toString().toLowerCase().includes(search.toLowerCase())
+      )
+    );
+  };
 
   let navigate = useNavigate();
 
@@ -42,19 +54,19 @@ function Shirt() {
       filterMode: "tree",
       filterSearch: true,
       onFilter: (value, record) => record.name.startsWith(value),
-      width: "20%",
+      width: "25%",
     },
     {
       title: "Image",
       dataIndex: "productLink",
       render: (productLink) => <img src={productLink} alt="" />,
-      width: "20%",
+      width: "15%",
     },
     {
       title: "Price",
       dataIndex: "price",
       sorter: (a, b) => a.price - b.price,
-      with: "25%",
+      with: "10%",
     },
     {
       title: "Size",
@@ -75,19 +87,26 @@ function Shirt() {
       ],
       onFilter: (value, record) => record.size.startsWith(value),
       filterSearch: (input, record) => record.value.indexOf(input) > -1,
-      width: "15%",
+      width: "10%",
+    },
+    {
+      title: "Description",
+      dataIndex: "description",
+      key: "description",
+      render: (text) => <span>{text}</span>,
+      width: "20%",
     },
     {
       title: "Action",
       key: "action",
       render: (record) => (
         <Space size="middle">
-          <Link to={`detail/${record.key}`}>
+          <Link to={`/shirt/${record.key}`}>
             <button className="btn-detail">
               <img src={images.Details} alt="details" />
             </button>
           </Link>
-          <Link to={`edit/${record.key}`}>
+          <Link to={`/shirt/${record.key}/edit`}>
             <button className="btn-edit">
               <img src={Edit} alt="edit" />
             </button>
@@ -135,7 +154,7 @@ function Shirt() {
     const newProductList = [newProduct, ...productList];
     setProductList(newProductList);
     openNotificationWithIcon("success", "Created Product");
-    navigate("/home/shirt");
+    navigate("/shirts");
     setIsModalVisible(false);
   };
 
@@ -157,10 +176,19 @@ function Shirt() {
 
   return (
     <>
-      <button onClick={showModal} className="btn-create p-10">
-        <img src={Add} alt="Add" />
-        <h6>Create Product</h6>
-      </button>
+      <h2>Products</h2>
+      <div className="management">
+        <Input
+          placeholder="Search product ..."
+          className="search-input"
+          onChange={(e) => setSearch(e.target.value)}
+          suffix={<BiSearch classname="search-icon" />}
+        />
+        <button onClick={showModal} className="btn-create p-10">
+          <img src={Add} alt="Add" />
+          <h6>Create Product</h6>
+        </button>
+      </div>
       <Modal
         title="Create Product"
         visible={isModalVisible}
@@ -180,9 +208,10 @@ function Shirt() {
       </Modal>
       <Table
         columns={columns}
-        dataSource={productList}
+        dataSource={queryName(productList)}
         onChange={onChange}
         handleOnDelete={handleOnDelete}
+        pagination={{ pageSize: 3 }}
       />
     </>
   );

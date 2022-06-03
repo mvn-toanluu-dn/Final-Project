@@ -12,7 +12,7 @@ export default function useAuth() {
         localStorage.setItem("user", JSON.stringify({ username }));
         setUser({ username });
         setIsLogged(true);
-        navigate("/home/dashboard", { replace: true });
+        navigate("/dashboard", { replace: true });
         res({ username });
       }, 1000);
     });
@@ -21,7 +21,7 @@ export default function useAuth() {
   const logout = () => {
     localStorage.removeItem("user");
     setIsLogged(false);
-    navigate("/auth/login", { replace: true });
+    navigate("/login", { replace: true });
   };
 
   return { isLogged, login, logout };

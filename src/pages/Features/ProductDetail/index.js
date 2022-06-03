@@ -8,18 +8,26 @@ function ProductDetail() {
   );
   return (
     <div className="product-detail">
-      <div className="detail-info flex">
-        <img src={currentItem.productLink} alt={currentItem.productLink} />
-      </div>
-      <div className="info-detail">
-        <div className="detail-item">
-          <span className="detail-name">{currentItem.name}</span>
+      <h2>Product Detail</h2>
+      <div className="detail-info-title">
+        <div className="detail-info flex">
+          <img src={currentItem.productLink} alt={currentItem.productLink} />
         </div>
-        <div className="detail-item">
-          <span className="detail-price">PRICE: {currentItem.price}</span>
-        </div>
-        <div className="detail-item">
-          <span className="detail-size">SIZE: {currentItem.size}</span>
+        <div className="detail-title col-9">
+          <div className="detail-item">
+            <span className="detail-name">{currentItem.name}</span>
+          </div>
+          <div className="detail-item">
+            <span className="detail-price">{currentItem.price}</span>
+          </div>
+          <div className="detail-item">
+            <span className="detail-size">Size: {currentItem.size}</span>
+          </div>
+          <div className="detail-item">
+            <span className="detail-description">
+              Description: {currentItem.description}
+            </span>
+          </div>
         </div>
       </div>
     </div>

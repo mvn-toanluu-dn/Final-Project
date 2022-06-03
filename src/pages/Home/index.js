@@ -24,29 +24,29 @@ export default function Home({ children }) {
     getItem(
       "Dashboard",
       "1",
-      <Link to="/home/dashboard">
+      <Link to="dashboard">
         <img className="logo" src={images.Dashboard} alt="dashboard" />
       </Link>
     ),
     getItem(
       "Account",
       "2",
-      <Link to="/home/account">
+      <Link to="account">
         <img className="logo" src={images.Account} alt="account" />
       </Link>
     ),
     getItem(
-      <Link to="/home/shirt">
-        <div>
-          <img className="logo" src={images.Shirt} alt="shirt" /> Shirt
-        </div>{" "}
-      </Link>,
-      "3"
+      "Shirt",
+      "3",
+      <Link to="shirts">
+        <img className="logo" src={images.Clothes} alt="shirt" />
+      </Link>
     ),
   ];
   return (
     <>
       <PageHeader />
+      <div className="page-main">
       <Layout>
         <Sider width={200} className="site-layout-background">
           <Menu
@@ -74,15 +74,16 @@ export default function Home({ children }) {
             }}
           >
             <Routes>
-              <Route path="shirt" element={<Shirt />} />
-              <Route path="shirt/edit/:key" element={<EditForm />} />
-              <Route path="shirt/detail/:key" element={<ProductDetail />} />
+              <Route path="shirts" element={<Shirt />} />
+              <Route path="shirt/:key/edit" element={<EditForm />} />
+              <Route path="shirt/:key" element={<ProductDetail />} />
               <Route path="account" element={<Account />} />
               <Route path="dashboard" element={<Dashboard />} />
             </Routes>
           </Content>
         </Layout>
       </Layout>
+      </div>
     </>
   );
 }
