@@ -12,11 +12,9 @@ export default function PageHeader() {
   const user = JSON.parse(localStorage.getItem("user"));
   return (
     <Header className="header">
-      <div className="logo">
-        <h1>
-          <Link to="/dashboard">ADMIN</Link>
-        </h1>
-      </div>
+      <h1 className="logo">
+        <Link to="/dashboard">ADMIN</Link>
+      </h1>
       <div className="user">
         <NavLink to="/account">
           <h6 className="user-info">

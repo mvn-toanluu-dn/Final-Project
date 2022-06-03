@@ -1,14 +1,13 @@
-import { Table, Space, Modal, Input } from "antd";
-import React, { useState, useEffect } from "react";
+import { Input, Modal, Space, Table } from "antd";
+import React, { useEffect, useState } from "react";
+import { BiSearch } from "react-icons/bi";
+import { FiEdit2 } from "react-icons/fi";
+import { MdDelete } from "react-icons/md";
+import { RiEyeCloseLine, RiEyeLine } from "react-icons/ri";
 import { Link, useNavigate } from "react-router-dom";
 import Add from "../../../assets/images/icon-add.jpg";
-import Delete from "../../../assets/images/icon-delete.png";
-import Edit from "../../../assets/images/icon-edit.png";
 import openNotificationWithIcon from "../../../components/animations";
-import { images } from "../../../components/modules/images";
 import ProductForm from "../../../components/modules/productForm";
-import { BiSearch } from "react-icons/bi";
-
 function Shirt() {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [productLink, setProductLink] = useState("");
@@ -64,7 +63,8 @@ function Shirt() {
     },
     {
       title: "Price",
-      dataIndex: "price",
+      // dataIndex: "price",
+      render: (a) => <span>{`${a.price} $`}</span>,
       sorter: (a, b) => a.price - b.price,
       with: "10%",
     },
@@ -103,19 +103,20 @@ function Shirt() {
         <Space size="middle">
           <Link to={`/shirt/${record.key}`}>
             <button className="btn-detail">
-              <img src={images.Details} alt="details" />
+              <RiEyeCloseLine className="close-eye" />
+              <RiEyeLine className="open-eye" />
             </button>
           </Link>
           <Link to={`/shirt/${record.key}/edit`}>
             <button className="btn-edit">
-              <img src={Edit} alt="edit" />
+              <FiEdit2 />
             </button>
           </Link>
           <button
             onClick={() => handleOnDelete(record.key)}
             className="btn-delete"
           >
-            <img src={Delete} alt="delete" />
+            <MdDelete />
           </button>
         </Space>
       ),
@@ -175,7 +176,7 @@ function Shirt() {
   }
 
   return (
-    <>
+    <section className="shirt-page section-padding">
       <h2>Products</h2>
       <div className="management">
         <Input
@@ -186,7 +187,7 @@ function Shirt() {
         />
         <button onClick={showModal} className="btn-create p-10">
           <img src={Add} alt="Add" />
-          <h6>Create Product</h6>
+          <p>Create Product</p>
         </button>
       </div>
       <Modal
@@ -213,7 +214,7 @@ function Shirt() {
         handleOnDelete={handleOnDelete}
         pagination={{ pageSize: 3 }}
       />
-    </>
+    </section>
   );
 }
 

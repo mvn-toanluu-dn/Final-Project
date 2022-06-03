@@ -1,21 +1,27 @@
 .account {
-  .title-page {
-    font-size: 24px;
+  position: relative;
+  .bg-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    filter: brightness(50%);
   }
   .account-content {
     display: flex;
+    position: absolute;
+    top: 50%;
+    align-items: center;
     .account-img {
       width: 200px;
+      padding: 10px;
       img {
         border-radius: 50%;
+        margin: 10px;
       }
     }
     .account-info {
-      font-size: 18px;
-      margin-left: 10px;
-      .account-hi {
-        font-size: 24px;
-      }
+      color: white;
+      font-size: 24px;
     }
   }
 }

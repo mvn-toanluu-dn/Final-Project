@@ -12,7 +12,7 @@ export default function useAuth() {
         localStorage.setItem("user", JSON.stringify({ username }));
         setUser({ username });
         setIsLogged(true);
-        navigate("/dashboard", { replace: true });
+        navigate("/account", { replace: true });
         res({ username });
       }, 1000);
     });

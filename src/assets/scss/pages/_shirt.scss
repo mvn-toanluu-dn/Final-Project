@@ -1,18 +1,28 @@
 .ant-table-cell {
+  &:hover {
+    background-color: #fafafa;
+  }
   img {
-    width: 120px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
   }
+}
+
+.ant-table-tbody > tr > td {
+  padding: 5px !important;
 }
 
 .management {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
   .search-input {
     width: 200px;
     height: 40px;
     border-radius: 10px;
-    margin-bottom: 10px;
+    // margin-bottom: 10px;
     .ant-input {
       height: 30px;
     }
@@ -23,28 +33,58 @@
   background: none;
   float: right;
   border: none;
+  border: 1px solid #b7eb8f;
+  background: #f6ffed;
+  align-items: center;
+  border-radius: 10px;
+  transition: 0.5s;
+  &:hover {
+    background: #e2fdc8;
+  }
   img {
     width: 24px;
   }
-  h6 {
+  p {
     font-size: 14px;
+    margin: 0px;
+    margin-left: 8px;
+    font-weight: 600;
   }
 }
+
 .ant-space-item {
   width: 36px;
   .btn-edit {
     border: none;
-    background-color: #fff;
-    border-radius: 50%;
+    background-color: inherit;
+    width: 40px;
+    font-size: 22px;
+    color: #83bd75;
   }
   .btn-delete {
     border: none;
-    background-color: #fff;
-    border-radius: 50%;
+    background-color: inherit;
+    width: 40px;
+    font-size: 22px;
+    color: #eb5353;
   }
   .btn-detail {
     border: none;
-    background-color: #fff;
-    border-radius: 50%;
+    background-color: inherit;
+    width: 40px;
+    font-size: 22px;
+    .open-eye {
+      display: none;
+    }
+    &:hover {
+      .open-eye {
+        width: 100%;
+        display: block;
+        background-color: #fafafa;
+      }
+      .close-eye {
+        display: none;
+      }
+    }
   }
 }

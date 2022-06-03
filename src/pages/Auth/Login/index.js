@@ -36,7 +36,7 @@ function Login() {
   };
   const user = localStorage.getItem("user");
   useEffect(() => {
-    user && navigate("/home/dashboard", { replace: true });
+    user && navigate("/account", { replace: true });
     // eslint-disable-next-line
   }, []);
 
