@@ -5,9 +5,9 @@ import "../../assets/scss/styles.scss";
 import PageHeader from "../../components/layouts/Headers/";
 import { images } from "../../components/modules/images";
 import Account from "../Account";
-import Shirt from "../Features/Shirt";
 import EditForm from "../Features/Edit";
 import ProductDetail from "../Features/ProductDetail";
+import Shirt from "../Features/Shirt";
 export default function Home({ children }) {
   const { Content, Sider } = Layout;
   function getItem(label, key, icon, children) {
@@ -22,14 +22,14 @@ export default function Home({ children }) {
   const items = [
     getItem(
       "Account",
-      "2",
+      "1",
       <Link to="account">
         <img className="logo" src={images.Account} alt="account" />
       </Link>
     ),
     getItem(
       "Shirt",
-      "3",
+      "2",
       <Link to="shirts">
         <img className="logo" src={images.Clothes} alt="shirt" />
       </Link>

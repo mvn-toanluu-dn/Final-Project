@@ -7,21 +7,28 @@
     filter: brightness(50%);
   }
   .account-content {
-    display: flex;
+    // display: flex;
     position: absolute;
-    top: 50%;
-    align-items: center;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, 0);
     .account-img {
-      width: 200px;
       padding: 10px;
+      margin: 0 auto;
       img {
         border-radius: 50%;
-        margin: 10px;
+        width: 250px;
       }
     }
     .account-info {
-      color: white;
+      color: #3399ff;
       font-size: 24px;
+      text-align: center;
+    }
+    .account-info.name {
+      color: #3399ff;
+      font-size: 20px;
+      text-align: center;
     }
   }
 }

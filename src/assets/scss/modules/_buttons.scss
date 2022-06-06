@@ -38,6 +38,9 @@
   padding: 5px !important;
   line-height: unset !important;
 }
+.ant-btn-primary {
+  border-radius: 8px !important;
+}
 .log-out,
 .btn-create {
   cursor: pointer;
@@ -49,4 +52,12 @@
   &:hover {
     transform: scale(1.1);
   }
+}
+.btn-changepassword {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ant-form-item .btn-changepassword {
+  height: auto;
 }
